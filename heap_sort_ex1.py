@@ -23,7 +23,7 @@ def heapsort(aList):
     # convert aList to heap
     length = len(aList) - 1
     leastParent = length / 2
-    for i in range (int(leastParent), -1, -1 ):
+    for i in range (int(leastParent),-1,-1):
         moveDown(aList,i,length)
 
     # flatten heap into sorted array
