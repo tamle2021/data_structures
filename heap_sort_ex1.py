@@ -21,7 +21,7 @@ worst => O(nlog(n)).'''
 
 def heapsort(aList):
     # convert aList to heap
-    length = len( aList ) - 1
+    length = len(aList) - 1
     leastParent = length / 2
     for i in range (int(leastParent), -1, -1 ):
         moveDown(aList,i,length)
