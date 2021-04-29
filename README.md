@@ -1,2 +1,1 @@
-# other
-Experimenting
+### Proof of concept
