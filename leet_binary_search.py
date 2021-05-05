@@ -1,3 +1,8 @@
+'''
+Binary search: O(log n)
+Only works optimally on sorted array
+'''
+
 def binarySearch(arr,target):
     left = 0
     right = len(arr) - 1
@@ -5,10 +10,10 @@ def binarySearch(arr,target):
         mid = (left + right) // 2
 
         # check if x is present at mid
-        if arr[mid] == target:
+        if (arr[mid] == target):
             return mid
         # if x is greater, ignore left half
-        elif arr[mid] < target:
+        elif (arr[mid] < target):
             left = mid + 1
         # if x is smaller, ignore right half
         else:
