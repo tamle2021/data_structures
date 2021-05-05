@@ -1,21 +1,21 @@
 """
 Heap sort happens in two phases. In the first phase, the array is transformed into a heap.
-A heap is a binary tree where each node is greater than each of its children amd the tree is
+A heap is a binary tree where each node is greater than each of its children and the tree is
 perfectly balanced.  All leaves are in the leftmost position available.  In phase two, the heap
 is continuously reduced to a sorted array.  While the heap is not empty, remove the top of the
 head into an array and fix the heap.  The move down method checks and verifies that the structure is a heap.
 
-A heap is based on an array just as a hashmap is based on an array. For a heap, the children of an element n
-are at index 2n+1 for the left child and 2n+2 for the right child.
+A heap is based on an array just as a hashmap is based on an array. For a heap, children of an element n
+are at index 2n + 1 for the left child and 2n + 2 for the right child.
 
 The move down function checks that an element is greater than its children. If not, the values of element
-and child are swapped. The function continues to check and swap until the element is at a position where 
-it is greater than its children.
+and child are swapped. The function continues to check and swap until the element is at position where
+greater than its children.
 
-Time Complexity of Solution:
-best => O(nlog(n)); 
+Time complexity of solution:
+best => O(nlog(n))
 average => O(nlog(n)) 
-worst => O(nlog(n)).
+worst => O(nlog(n))
 """
 
 count = 0
@@ -50,12 +50,12 @@ def moveDown(aList,first,last):
         else:
             return
 
-def swap(A,x,y):
+def swap(bList,x,y):
     global count
     count = count + 1
-    tmp = A[x]
-    A[x] = A[y]
-    A[y] = tmp
+    tmp = bList[x]
+    bList[x] = bList[y]
+    bList[y] = tmp
 
 if (__name__ == "__main__"):
     aList = [2,3,92,4,11,0,22,211,1234,19,777,55]

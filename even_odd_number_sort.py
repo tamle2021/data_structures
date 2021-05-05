@@ -1,5 +1,6 @@
 '''
 Sort array and also return swap count
+Not optimal number of swaps
 '''
 
 count = 0
@@ -20,13 +21,14 @@ def sort(arr):
             arr[index - 1] = temp
             index = index - 1
             count = count + 1
+            print(count)
     return arr
 
 def compare(a,b) :
-    if (a % 2 == b % 2):
+    if ((a % 2) == (b % 2)):
         return a > b;
     else:
-        return a % 2 == 1
+        return (a % 2) == 1
 
 if (__name__ == "__main__"):
     arr = [3,2,5,6,4,9,11,7]
