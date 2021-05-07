@@ -1,10 +1,11 @@
 '''
 Return the indexes of two elements whose sum equals target
+Time and space complexity: O(n)
 '''
-
+from typing import List
 foundFlag = False
 
-def twoSum(arr: [int],target: int) -> [int]:
+def twoSum(arr: List[int],target: int) -> List[int]:
     global foundFlag
     m = {}
     n = len(arr)
