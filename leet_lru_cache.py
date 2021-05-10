@@ -46,5 +46,6 @@ if (__name__ == "__main__"):
     l.put(1,3)
     l.put(4,4)
     l.put(9,144)
+    l.put(6,11)
     l.displayDeq()
     l.displayMap()
