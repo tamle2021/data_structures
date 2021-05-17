@@ -12,7 +12,7 @@ class NumRescueBoats:
         people.sort()
 
         left = 0
-        right = len(people)-1
+        right = len(people) - 1
         boats_number = 0
 
         while (left <= right):
