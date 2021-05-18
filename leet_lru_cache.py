@@ -1,8 +1,6 @@
 '''
 Least recently used policy to remove items from cache
-
 '''
-
 from collections import deque
 
 class LRUCache:

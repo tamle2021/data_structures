@@ -3,7 +3,6 @@ Depth first search using stack
 time complexity: O(V + E)
 space complexity: O(V)
 '''
-
 from collections import defaultdict
 
 class Graph:
