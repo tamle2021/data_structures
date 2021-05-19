@@ -9,7 +9,7 @@ explore all edges of vertex
 
 using namespace std;
 
-void BFS(int vtx, int A[][8], int n){
+void BFS(int vtx,int A[][8],int n){
     queue<int> Q;
     int visited[8] {0};
 
@@ -19,15 +19,16 @@ void BFS(int vtx, int A[][8], int n){
     Q.emplace(vtx);
 
     // explore
-    while (!Q.empty()){
+    while (!Q.empty()) {
         // vertex u for exploring
         int u = Q.front();
         Q.pop();
         // adjacent vertices of vertex u
-        for (int v=1; v<=n; v++){
+        for (int v = 1; v <= n; v++) {
 		    // adjacent vertex and not visited
             if (A[u][v] == 1 && visited[v] == 0){
-                cout << v << ", " << flush;  // Visit vertex
+                cout << v << ", " << flush;
+                // visit vertex
                 visited[v] = 1;
                 Q.emplace(v);
             }
@@ -36,20 +37,24 @@ void BFS(int vtx, int A[][8], int n){
     cout << endl;
 }
 
-int main (){
-    int A[8][8] = {{0, 0, 0, 0, 0, 0, 0, 0},
-                   {0, 0, 1, 1, 1, 0, 0, 0},
-                   {0, 1, 0, 1, 0, 0, 0, 0},
-                   {0, 1, 1, 0, 1, 1, 0, 0},
-                   {0, 1, 0, 1, 0, 1, 0, 0},
-                   {0, 0, 0, 1, 1, 0, 1, 1},
-                   {0, 0, 0, 0, 0, 1, 0, 0},
-                   {0, 0, 0, 0, 0, 1, 0, 0}};
+int main () {
+    int A[8][8] = {
+        {0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 1, 1, 1, 0, 0, 0},
+        {0, 1, 0, 1, 0, 0, 0, 0},
+        {0, 1, 1, 0, 1, 1, 0, 0},
+        {0, 1, 0, 1, 0, 1, 0, 0},
+        {0, 0, 0, 1, 1, 0, 1, 1},
+        {0, 0, 0, 0, 0, 1, 0, 0},
+        {0, 0, 0, 0, 0, 1, 0, 0}};
 
-    cout << "vertex: 1 -> " << flush;
+    cout << "vertex 1: " << flush;
     BFS(1, A, 8);
 
-    cout << "vertex: 4 -> " << flush;
+    cout << "vertex 3: " << flush;
+    BFS(3, A, 8);
+
+    cout << "vertex 4: " << flush;
     BFS(4, A, 8);
 
     return 0;
