@@ -3,7 +3,6 @@ minimum time: O(n)
 max time: O(n^2)
 adaptive & stable
 */
-
 #include <iostream>
 
 using namespace std;
@@ -20,13 +19,13 @@ void printArray(T& vec,int n,string s) {
     cout << "]" << endl;
 }
 
-void swap(int* x, int* y){
+void swap(int* x,int* y){
     int temp = *x;
     *x = *y;
     *y = temp;
 }
 
-void bubbleSort(int A[], int n){
+void bubbleSort(int A[],int n){
     int flag = 0;
     for (int i = 0; i < n - 1; i++){
         for (int j = 0; j < n - 1 - i; j++){
