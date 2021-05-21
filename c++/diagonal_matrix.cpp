@@ -40,12 +40,14 @@ void display(struct Matrix m) {
 
 int main() {
     struct Matrix m;
-    m.n=4;
+    // 5 x 5 matrix
+    m.n = 5;
 
     setMatrix(&m,1,1,5);
     setMatrix(&m,2,2,8);
     setMatrix(&m,3,3,9);
-    setMatrix(&m,4,4,12);
+    setMatrix(&m,4,4,1);
+    setMatrix(&m,5,5,7);
     cout << "diagonal matrix: \n" << endl;
     printf("%d \n",get(m,2,2));
     printf("%d \n",get(m,3,3));
