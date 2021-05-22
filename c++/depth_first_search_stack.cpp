@@ -7,36 +7,35 @@ the process again until all vertices have been visited.
 
 Depth first search using stack structure
 */
-
 #include <iostream>
 #include <stack>
 
 using namespace std;
 
-void DFS(int u, int A[][8],int n) {
+void DFS(int u,int A[][8],int n) {
     // initialize visit tracking array and stack
     int visited[8] {0};
     stack<int> stac;
     stac.emplace(u);
 
     // visit start vertex u
-    cout << u << ", " << flush;
+    cout << u << " " << flush;
     // visited vertex u
     visited[u] = 1;
 
     // initial adjacent vertex
     int v = 0;
 
-    while (!stac.empty()){
-        while (v < n){
-            if (A[u][v] == 1 && visited[v] == 0){
+    while (!stac.empty()) {
+        while (v < n) {
+            if (A[u][v] == 1 && visited[v] == 0) {
                 // suspend exploring current vertex u
                 stac.push(u);
-                // ipdate current vertex as the next adjacent vertex
+                // update current vertex as the next adjacent vertex
                 u = v;
 
                 // visit current vertex u
-                cout << u << ", " << flush;
+                cout << u << " " << flush;
                 visited[u] = 1;
                 // increment will make 0
                 v = -1;
@@ -52,21 +51,21 @@ void DFS(int u, int A[][8],int n) {
 }
 
 // adds elements to stack from end
-void dfs(int u, int A[][8], int n){
+void dfs(int u,int A[][8],int n) {
     int visited[8] {0};
     stack<int> stac;
     stac.emplace(u);
 
-    while (!stac.empty()){
+    while (!stac.empty()) {
         u = stac.top();
         stac.pop();
 
-        if (visited[u] != 1){
-            cout << u << ", " << flush;
+        if (visited[u] != 1) {
+            cout << u << " " << flush;
             visited[u] = 1;
 
-            for (int v = n - 1; v >= 0; v--){
-                if (A[u][v] == 1 && visited[v] == 0){
+            for (int v = n - 1; v >= 0; v--) {
+                if (A[u][v] == 1 && visited[v] == 0) {
                     stac.emplace(v);
                 }
             }
@@ -74,7 +73,7 @@ void dfs(int u, int A[][8], int n){
     }
 }
 
-int main (){
+int main () {
     int A[8][8] = {
         {0, 0, 0, 0, 0, 0, 0, 0},
         {0, 0, 1, 1, 1, 0, 0, 0},

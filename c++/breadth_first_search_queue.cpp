@@ -1,20 +1,20 @@
 /*
-Breadth first search using queue.
+Breadth first search algorithm is a graph traversing technique, where one selects a random initial node (source or root node) and starts
+traversing the graph layer-wise in such a way that all the nodes and their respective children nodes are visited and explored.
+Breadth first search using queue
 FIFO
-explore all edges of vertex
 */
-
 #include <iostream>
 #include <queue>
 
 using namespace std;
 
-void BFS(int vtx,int A[][8],int n){
+void BFS(int vtx,int A[][8],int n) {
     queue<int> Q;
     int visited[8] {0};
 
     // visit vertex
-    cout << vtx << ", " << flush;
+    cout << vtx << " " << flush;
     visited[vtx] = 1;
     Q.emplace(vtx);
 
@@ -26,8 +26,8 @@ void BFS(int vtx,int A[][8],int n){
         // adjacent vertices of vertex u
         for (int v = 1; v <= n; v++) {
 		    // adjacent vertex and not visited
-            if (A[u][v] == 1 && visited[v] == 0){
-                cout << v << ", " << flush;
+            if (A[u][v] == 1 && visited[v] == 0) {
+                cout << v << " " << flush;
                 // visit vertex
                 visited[v] = 1;
                 Q.emplace(v);
@@ -48,13 +48,14 @@ int main () {
         {0, 0, 0, 0, 0, 1, 0, 0},
         {0, 0, 0, 0, 0, 1, 0, 0}};
 
-    cout << "vertex 1: " << flush;
+    cout << "*****breadth first search*****\n";
+    cout << "v1: " << flush;
     BFS(1, A, 8);
 
-    cout << "vertex 3: " << flush;
+    cout << "v3: " << flush;
     BFS(3, A, 8);
 
-    cout << "vertex 4: " << flush;
+    cout << "v4: " << flush;
     BFS(4, A, 8);
 
     return 0;
