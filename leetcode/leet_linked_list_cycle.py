@@ -6,7 +6,6 @@ following the next pointer.
 checks to see if linked list has a cycle
 '''
 
-
 class ListNode:
     def __init__(self,x):
         self.val = x
