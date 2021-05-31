@@ -35,4 +35,6 @@ class NetworkDelayTime:
 
 
 n = NetworkDelayTime()
-n.start([[1,2,3],[2,4,1],[3,6,9]],4,1)
+currentDistance = n.start([[1,2,3],[2,4,1],[3,2,4],[1,3,2],[4,5,4]],5,3)
+
+print("current distance: %s" % currentDistance)
