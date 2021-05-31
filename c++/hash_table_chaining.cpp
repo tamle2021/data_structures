@@ -21,7 +21,7 @@ using namespace std;
 // linked list node
 class Node{
 public:
-	int data;
+    int data;
 	Node* next;
 };
 
