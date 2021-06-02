@@ -11,12 +11,14 @@ class ValidMountainArray:
             return False
 
         i = 1
+        # check for increasing sequence
         while (i < len(A) and A[i] > A[i - 1]):
             i += 1
 
         if (i == 1 or i == len(A)):
             return False
 
+        # check for decreasing sequence
         while (i < len(A) and A[i] < A[i - 1]):
             i += 1
 
