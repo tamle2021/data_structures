@@ -5,7 +5,7 @@ Fibonacci sequence is a series of numbers where a number is the addition of the 
 with 0 and 1.
 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55 .....
 
-time complexity: O(n^2 * log(m)), where n is the length of array and m is maximum element
+time complexity: O(n^2 * log(m)), where n is length of array and m is maximum element
 '''
 class LongestFibSubSequence:
     def start(self,A,n):
