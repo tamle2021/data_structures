@@ -20,7 +20,7 @@ int probe(int H[],int key) {
     int index = hashIt(key);
     int i = 0;
 
-    while(H[(index + i) % SIZE] != 0)
+    while (H[(index + i) % SIZE] != 0)
         i++;
 
     return (index + i) % SIZE;
@@ -31,7 +31,7 @@ void Insert(int H[],int key) {
     if (H[index] != 0)
         index = probe(H,key);
 
-    H[index]=key;
+    H[index] = key;
 }
 
 int Search(int H[],int key) {
