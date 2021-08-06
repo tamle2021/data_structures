@@ -3,6 +3,12 @@ An anagram is a word or phrase formed by rearranging the letters of a different 
 using all the original letters exactly once.  Another words, it is a permutation of letters to make a legal word,
 where order matters.
 
+Given an array of strings, group the anagrams together.
+
+constraints:
+1 <= strs.length <= 104
+0 <= strs[i].length <= 100
+strs[i] consists of lower-case English letters.
 '''
 from typing import List
 

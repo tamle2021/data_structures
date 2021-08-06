@@ -1,4 +1,5 @@
-''' Given a string containing digits from 2-9 inclusive, return all possible letter combinations the
+'''
+Given a string containing digits from 2-9 inclusive, return all possible letter combinations the
 number could represent and in any order.  A mapping of digits to letters is similar to telephone buttons
 and 1 does not map to any letters.
 

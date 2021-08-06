@@ -1,10 +1,9 @@
 '''
-Find first and last position of target number in sorted array
+Find first and last position of target number in sorted array.
 
 time complexity: O(log(n))
 space complexity: O(1)
 '''
-
 from typing import List
 
 class FirstLastPosition:
