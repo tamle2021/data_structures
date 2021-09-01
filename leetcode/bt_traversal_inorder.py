@@ -22,33 +22,40 @@ def inorder(node):
         inorder(node.right)
 
 # create root
-root = Node(4)
+root = Node(37)
 ''' following is the tree after above statement 
-	    4 
+	    37 
 	  /   \ 
 	None  None
 '''
 
-root.left = Node(5)
-root.right = Node(6)
-
-''' 5 and 6 become left and right children of 1 
-		          4 
-		        /    \ 
-		      5	      6 
+root.left = Node(2)
+root.right = Node(66)
+''' 2 and 66 become left and right children of 37 
+		          37 
+		        /   \ 
+		      2	     66 
 	        /  \     /  \ 
           None None None None
 '''
 
-root.left.left = Node(7)
+root.left.left = Node(0)
 '''
-7 becomes left child of 5
-		           4 
-		         /    \ 
-		        5	   6 
-	          /  \    /  \
-             7  None None None
-            / \
-          None None
+0 becomes left child of 2
+		         37 
+		        /   \ 
+		      2	     66 
+	        /  \     /  \ 
+           0   None None None
+'''
+
+root.right.right = Node(227)
+'''
+227 becomes right child of 66
+		         37 
+		        /   \ 
+		      2	      66 
+	        /  \     /  \ 
+           0   None None 227
 '''
 inorder(root)
