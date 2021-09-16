@@ -1,9 +1,8 @@
 /*
 AVL trees are binary search trees in which the difference between height of  left and right subtree is either -1, 0, or 1.
-AVL trees are also called a self-balancing binary search tree. These trees help to maintain the logarithmic search time. It is named after its
- inventors Adelson, Velsky, and Landis.
-
-*** Left left, right right rotation on avl tree ***
+AVL trees are also called a self-balancing binary search tree. These trees help to maintain the logarithmic search time. It is named after
+its founders Adelson, Velsky, and Landis.
+*** left left, right right rotation on avl tree ***
 
 */
 #include <iostream>
@@ -29,12 +28,12 @@ public:
     int nodeHeight(Node* p);
     int balanceFactor(Node* p);
     Node* leftLeftRotation(Node* p);
-    Node* RRRotation(Node* p);
+    Node* rightRightRotation(Node* p);
     Node* leftRightRotation(Node* p);
     Node* rightLeftRotation(Node* p);
 
     // insert
-    Node* rInsert(Node* p, int key);
+    Node* recursiveInsert(Node* p,int key);
 
     // traversal
     void inorder(Node* p);
@@ -85,7 +84,7 @@ Node* AVL::leftLeftRotation(Node *p) {
     return pl;
 }
 
-Node* AVL::RRRotation(Node *p) {
+Node* AVL::rightRightRotation(Node *p) {
     Node* pr = p->rchild;
     Node* prl = pr->lchild;
 
@@ -111,7 +110,7 @@ Node* AVL::rightLeftRotation(Node *p) {
     return nullptr;
 }
 
-Node* AVL::rInsert(Node *p,int key) {
+Node* AVL::recursiveInsert(Node *p,int key) {
     Node* t;
     if (p == nullptr) {
         t = new Node;
@@ -124,10 +123,10 @@ Node* AVL::rInsert(Node *p,int key) {
     }
 
     if (key < p->data) {
-        p->lchild = rInsert(p->lchild,key);
+        p->lchild = recursiveInsert(p->lchild,key);
     }
     else if (key > p->data) {
-        p->rchild = rInsert(p->rchild,key);
+        p->rchild = recursiveInsert(p->rchild,key);
     }
 
     // update height
@@ -139,7 +138,7 @@ Node* AVL::rInsert(Node *p,int key) {
     } else if (balanceFactor(p) == 2 && balanceFactor(p->lchild) == -1) {
         return leftRightRotation(p);
     } else if (balanceFactor(p) == -2 && balanceFactor(p->rchild) == -1) {
-        return RRRotation(p);
+        return rightRightRotation(p);
     } else if (balanceFactor(p) == -2 && balanceFactor(p->rchild) == 1) {
         return rightLeftRotation(p);
     }
@@ -155,23 +154,22 @@ void AVL::inorder(Node *p) {
     }
 }
 
-
 int main() {
     cout << "**** left left right right rotation on AVL tree ****\n";
     // left left rotation
     AVL leftLeftTree;
-    leftLeftTree.root = leftLeftTree.rInsert(leftLeftTree.root,34);
-    leftLeftTree.root = leftLeftTree.rInsert(leftLeftTree.root,22);
-    leftLeftTree.root = leftLeftTree.rInsert(leftLeftTree.root,13);
+    leftLeftTree.root = leftLeftTree.recursiveInsert(leftLeftTree.root,34);
+    leftLeftTree.root = leftLeftTree.recursiveInsert(leftLeftTree.root,22);
+    leftLeftTree.root = leftLeftTree.recursiveInsert(leftLeftTree.root,13);
 
     leftLeftTree.inorder();
     cout << endl;
 
     // right right rotation
     AVL rightRightTree;
-    rightRightTree.root = rightRightTree.rInsert(rightRightTree.root,14);
-    rightRightTree.root = rightRightTree.rInsert(rightRightTree.root,27);
-    rightRightTree.root = rightRightTree.rInsert(rightRightTree.root,39);
+    rightRightTree.root = rightRightTree.recursiveInsert(rightRightTree.root,14);
+    rightRightTree.root = rightRightTree.recursiveInsert(rightRightTree.root,27);
+    rightRightTree.root = rightRightTree.recursiveInsert(rightRightTree.root,39);
 
     rightRightTree.inorder();
     cout << endl;

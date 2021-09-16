@@ -1,5 +1,10 @@
 /*
-Left left left right rotation on AVL tree
+AVL tree (named after Adelson-Velsky and Landis) is a self-balancing binary search tree.  It was the first such data structure if its kind to be
+thought up.  In an AVL tree, the heights of two child subtrees of any node differ by at most one; if at any time they differ by more than one,
+rebalancing is done to restore this property. Lookup, insertion, and deletion all take O(log n) time in both the average and worst cases, where n
+is the number of nodes in the tree prior to the operation.  Insertions and deletions may require tree to be rebalanced by one or more rotations.
+
+**** left left left right rotation on AVL tree ****
 */
 
 #include <stdio.h>
@@ -96,7 +101,7 @@ struct Node* recursiveInsert(struct Node *p,int key) {
 
     if (balanceFactor(p) == 2 &&  balanceFactor(p->lchild) == 1)
         return leftLeftRotation(p);
-    else if (balanceFactor(p)==2 && balanceFactor(p->lchild) == -1)
+    else if (balanceFactor(p) == 2 && balanceFactor(p->lchild) == -1)
         return leftRightRotation(p);
     else if (balanceFactor(p) == -2 && balanceFactor(p->rchild) == -1)
         return rightRightRotation(p);
@@ -109,10 +114,10 @@ struct Node* recursiveInsert(struct Node *p,int key) {
 int main() {
     cout << "**** left left left right rotation on AVL tree ****\n";
     struct Node *result;
-    root = recursiveInsert(root,50);
-    recursiveInsert(root,10);
-    recursiveInsert(root,20);
-    recursiveInsert(root,65);
+    root = recursiveInsert(root,52);
+    recursiveInsert(root,14);
+    recursiveInsert(root,29);
+    recursiveInsert(root,66);
     inorder(root);
 
     return 0;

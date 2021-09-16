@@ -1,7 +1,7 @@
 '''
 One is given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse
 order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
-You may assume the two numbers do not contain any leading zeros, except the number 0 itself.
+One may assume the two numbers do not contain any leading zeros, except the number 0 itself.
 
 example:
 input => l1 = [2,4,3], l2 = [5,6,4]
@@ -14,12 +14,11 @@ Number of nodes in each linked list is in the range [1,100].
 It is guaranteed that the list represents a number that does not have leading zeros.
 
 space and time complexity: O(n)
-
 '''
 
 # definition for singly-linked list
 class ListNode:
-    def __init__(self, x):
+    def __init__(self,x):
         self.val = x
         self.next = None
 
@@ -71,7 +70,7 @@ linkedList2Node9.next = linkedList2Node3
 linkedList2Node3.next = linkedList2Node2
 
 result = a.beginProcess(linkedList1Node5,linkedList2Node8)
-
 while (result != None):
     print(result.val)
     result = result.next
+
