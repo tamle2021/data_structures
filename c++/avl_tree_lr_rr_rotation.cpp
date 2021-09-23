@@ -1,9 +1,9 @@
 /*
-AVL trees are binary search trees in which the difference between height of  left and right subtree is either -1, 0, or 1.
-AVL trees are also called a self-balancing binary search tree. These trees help to maintain the logarithmic search time. It is named after
-its founders Adelson-Velsky and Landis.
-*** left left, right right rotation on avl tree ***
+AVL tree is a height-balanced binary search tree.  A binary tree is said to be balanced if the difference between the heights of left and right
+subtrees of every node is either -1, 0 or 1.  The AVL tree was created in year 1962 by G.M. Adelson-Velsky and E.M. Landis and contains
+balance factor information about node.
 
+**** left right right right rotation on AVL tree ****
 */
 #include <iostream>
 
@@ -20,20 +20,20 @@ public:
 class AVL {
 public:
     Node* root;
+
     AVL() {
         root = nullptr;
     }
 
-    // helper methods for insertion
+    // helper methods for inserting
     int nodeHeight(Node* p);
     int balanceFactor(Node* p);
     Node* leftLeftRotation(Node* p);
     Node* rightRightRotation(Node* p);
     Node* leftRightRotation(Node* p);
     Node* rightLeftRotation(Node* p);
-
     // insert
-    Node* recursiveInsert(Node* p,int key);
+    Node* recursiveInsert(Node* p, int key);
 
     // traversal
     void inorder(Node* p);
@@ -52,7 +52,6 @@ int AVL::nodeHeight(Node *p) {
 
     hl = (p && p->lchild) ? p->lchild->height : 0;
     hr = (p && p->rchild) ? p->rchild->height : 0;
-
     return hl > hr ? hl + 1 : hr + 1;
 }
 
@@ -62,14 +61,12 @@ int AVL::balanceFactor(Node *p) {
 
     hl = (p && p->lchild) ? p->lchild->height : 0;
     hr = (p && p->rchild) ? p->rchild->height : 0;
-
     return hl - hr;
 }
 
 Node* AVL::leftLeftRotation(Node *p) {
     Node* pl = p->lchild;
     Node* plr = pl->rchild;
-
     pl->rchild = p;
     p->lchild = plr;
 
@@ -81,13 +78,13 @@ Node* AVL::leftLeftRotation(Node *p) {
     if (root == p) {
         root = pl;
     }
+
     return pl;
 }
 
 Node* AVL::rightRightRotation(Node *p) {
     Node* pr = p->rchild;
     Node* prl = pr->lchild;
-
     pr->lchild = p;
     p->rchild = prl;
 
@@ -99,15 +96,48 @@ Node* AVL::rightRightRotation(Node *p) {
     if (root == p) {
         root = pr;
     }
+
     return pr;
 }
 
 Node* AVL::leftRightRotation(Node *p) {
-    return nullptr;
+    Node* pl = p->lchild;
+    Node* plr = pl->rchild;
+    pl->rchild = plr->lchild;
+    p->lchild = plr->rchild;
+    plr->lchild = pl;
+    plr->rchild = p;
+
+    // update height
+    pl->height = nodeHeight(pl);
+    p->height = nodeHeight(p);
+    plr->height = nodeHeight(plr);
+
+    // update root
+    if (p == root) {
+        root = plr;
+    }
+    return plr;
 }
 
 Node* AVL::rightLeftRotation(Node *p) {
-    return nullptr;
+    Node* pr = p->rchild;
+    Node* prl = pr->lchild;
+    pr->lchild = prl->rchild;
+    p->rchild = prl->lchild;
+    prl->rchild = pr;
+    prl->lchild = p;
+
+    // update height
+    pr->height = nodeHeight(pr);
+    p->height = nodeHeight(p);
+    prl->height = nodeHeight(prl);
+
+    // update root
+    if (root == p) {
+        root = prl;
+    }
+    return prl;
 }
 
 Node* AVL::recursiveInsert(Node *p,int key) {
@@ -117,8 +147,9 @@ Node* AVL::recursiveInsert(Node *p,int key) {
         t->data = key;
         t->lchild = nullptr;
         t->rchild = nullptr;
-         // starting height from 1 onwards instead of 0
+        // starting height from 1 onwards instead of 0
         t->height = 1;
+
         return t;
     }
 
@@ -135,11 +166,14 @@ Node* AVL::recursiveInsert(Node *p,int key) {
     // balance factor and rotation
     if (balanceFactor(p) == 2 && balanceFactor(p->lchild) == 1) {
         return leftLeftRotation(p);
-    } else if (balanceFactor(p) == 2 && balanceFactor(p->lchild) == -1) {
+    }
+    else if (balanceFactor(p) == 2 && balanceFactor(p->lchild) == -1) {
         return leftRightRotation(p);
-    } else if (balanceFactor(p) == -2 && balanceFactor(p->rchild) == -1) {
+    }
+    else if (balanceFactor(p) == -2 && balanceFactor(p->rchild) == -1) {
         return rightRightRotation(p);
-    } else if (balanceFactor(p) == -2 && balanceFactor(p->rchild) == 1) {
+    }
+    else if (balanceFactor(p) == -2 && balanceFactor(p->rchild) == 1) {
         return rightLeftRotation(p);
     }
 
@@ -149,30 +183,32 @@ Node* AVL::recursiveInsert(Node *p,int key) {
 void AVL::inorder(Node *p) {
     if (p) {
         inorder(p->lchild);
-        cout << p->data << "  " << flush;
+        cout << p->data << " " << flush;
         inorder(p->rchild);
     }
 }
 
 int main() {
-    cout << "**** left left right right rotation on AVL tree ****\n";
-    // left left rotation
-    AVL leftLeftTree;
-    leftLeftTree.root = leftLeftTree.recursiveInsert(leftLeftTree.root,34);
-    leftLeftTree.root = leftLeftTree.recursiveInsert(leftLeftTree.root,22);
-    leftLeftTree.root = leftLeftTree.recursiveInsert(leftLeftTree.root,13);
+    cout << "**** left right right right rotation on AVL tree ****\n";
+    // left right rotation
+    AVL treeLeftRight;
+    treeLeftRight.root = treeLeftRight.recursiveInsert(treeLeftRight.root,52);
+    treeLeftRight.root = treeLeftRight.recursiveInsert(treeLeftRight.root,11);
+    treeLeftRight.root = treeLeftRight.recursiveInsert(treeLeftRight.root,27);
+    treeLeftRight.inorder();
 
-    leftLeftTree.inorder();
     cout << endl;
+    cout << "root data: " << treeLeftRight.root->data << endl;
 
-    // right right rotation
-    AVL rightRightTree;
-    rightRightTree.root = rightRightTree.recursiveInsert(rightRightTree.root,14);
-    rightRightTree.root = rightRightTree.recursiveInsert(rightRightTree.root,27);
-    rightRightTree.root = rightRightTree.recursiveInsert(rightRightTree.root,39);
+    // right left rotation
+    AVL treeRightLeft;
+    treeRightLeft.root = treeRightLeft.recursiveInsert(treeRightLeft.root,23);
+    treeRightLeft.root = treeRightLeft.recursiveInsert(treeRightLeft.root,59);
+    treeRightLeft.root = treeRightLeft.recursiveInsert(treeRightLeft.root, 34);
+    treeRightLeft.inorder();
 
-    rightRightTree.inorder();
     cout << endl;
+    cout << "root data: " << treeRightLeft.root->data << endl;
 
     return 0;
 }
