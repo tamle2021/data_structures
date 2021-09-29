@@ -6,10 +6,16 @@ Two combinations are unique if the frequency of at least one of the chosen numbe
 It is guaranteed that the number of unique combinations that sum up to target is less than 150
 combinations for the given input.
 
-input: candidates = [2,3,6,7], target = 7
+input: candidates => [2,3,6,7], target => 7
 output: [[2,2,3],[7]]
 explanation: 2 and 3 are candidates and 2 + 2 + 3 = 7. Note that 2 can be used multiple times.
 7 is a candidate and 7 = 7 and these are the only two combinations.
+
+constraints:
+1 <= candidates.length <= 30
+1 <= candidates[i] <= 200
+All elements of candidates are distinct.
+1 <= target <= 500
 
 '''
 from typing import List
