@@ -66,7 +66,7 @@ void bubbleSort(int A[],int n){
 }
 
 int main() {
-        cout << "**** bubble sort c++ implementation ****\n" << endl;
+    cout << "**** bubble sort c++ implementation ****\n" << endl;
     int A[] = {3, 7, 9,0,10, 6, 55, 12, 44, 11,-99,101,2};
     int n = sizeof(A) / sizeof(A[0]);
 
