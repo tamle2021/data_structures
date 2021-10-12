@@ -1,77 +1,48 @@
 /*
-Bubble Sort is a sorting algorithm that works by repeatedly swapping the adjacent elements if they
-are in wrong order.
-example:
-first pass:
-( 5 1 4 2 8 ) --> ( 1 5 4 2 8 ) Here, algorithm compares the first two elements, and swaps since 5 > 1.
-( 1 5 4 2 8 ) -->  ( 1 4 5 2 8 ) Swap since 5 > 4
-( 1 4 5 2 8 ) -->  ( 1 4 2 5 8 ) Swap since 5 > 2
-( 1 4 2 5 8 ) --> ( 1 4 2 5 8 ) Now, since these elements are already in order (8 > 5), algorithm does not
-swap them.
-second pass:
-(1 4 2 5 8) --> (1 4 2 5 8)
-(1 4 2 5 8) --> (1 2 4 5 8) Swap since 4 > 2
-(1 2 4 5 8) --> (1 2 4 5 8)
-(1 2 4 5 8) -->  (1 2 4 5 8)
-Now, the array is already sorted, but algorithm does not know if it is completed. The algorithm needs
-one whole pass without any swap to know it is sorted.
-third pass:
-(1 2 4 5 8) --> (1 2 4 5 8)
-(1 2 4 5 8) --> (1 2 4 5 8)
-(1 2 4 5 8) --> (1 2 4 5 8)
-(1 2 4 5 8) --> (1 2 4 5 8)
+Bubble sort, also referred to as comparison sort, is a simple sorting algorithm that repeatedly goes through list,
+compares adjacent elements, and swaps them if they are in the wrong order.
 
-minimum time: O(n)
-max time: O(n^2)
-adaptive & stable
 */
+
+#include <stdio.h>
+#include<stdlib.h>
 #include <iostream>
 
 using namespace std;
 
-template <class T>
-void printArray(T& vec,int n,string s) {
-    cout << s << "[" << flush;
-    for (int i = 0; i < n; i++) {
-        cout << vec[i] << flush;
-        if (i < n - 1) {
-            cout << ", " << flush;
-        }
-    }
-    cout << "]" << endl;
-}
-
-void swap(int* x,int* y){
+void swap(int *x,int *y) {
     int temp = *x;
     *x = *y;
     *y = temp;
-}
-
-void bubbleSort(int A[],int n){
-    int flag = 0;
-    for (int i = 0; i < n - 1; i++){
-        for (int j = 0; j < n - 1 - i; j++){
-            if (A[j] > A[j+1]){
+ }
+void bubble(int A[],int n) {
+    int i,j,flag = 0;
+    for (i = 0; i < n - 1; i++) {
+        flag=0;
+        for (j = 0; j < n - i - 1; j++) {
+            if (A[j] > A[j+1]) {
                 swap(&A[j],&A[j+1]);
                 flag = 1;
             }
         }
-        if (flag == 0){
-            return;
-        }
+
+        if (flag == 0)
+            break;
     }
 }
 
 int main() {
-    int A[] = {3, 7, 9, 10, 6, 5, 12, 4, 11,-99,101,2};
-    int n = sizeof(A) / sizeof(A[0]);
-    cout << "*****bubble sort*****\n" << endl;
-    cout << "---before sort---\n";
-    printArray(A,n,"");
+    cout << "**** bubble sort ****\n";
+    int A[] = {111,12,1,74,0,9,-21,17,51,18,33,41}, n = 12, i;
 
-    bubbleSort(A,n);
-    cout << "---after sort---\n";
-    printArray(A,n,"");
+    cout  << "before sort: \n";
+    for (i = 0; i < 11; i++)
+        cout << A[i] << " ";
+    bubble(A,n);
+    cout << "\nafter sort: \n";
+    for (i = 0; i < 11; i++)
+        printf("%d ",A[i]);
 
+    printf("\n");
     return 0;
 }
