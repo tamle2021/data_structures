@@ -1,6 +1,12 @@
 '''
-Binary search: O(log n)
-Only works optimally on sorted array
+Binary search is a searching algorithm which is used to search a particular element's position in a given sorted
+array/vector. In this algorithm the targeted element is compared with middle element.
+If both elements are equal then position of middle element is returned and hence targeted element is found.
+If both elements are unequal, then a comparison is made with target and middle elements and
+we discard the lower or upper half depending on outcome of comparison.  The search continues with new middle elements
+until the target is found.
+
+space complexity: O(1)
 '''
 
 def binarySearch(arr,target):
