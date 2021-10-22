@@ -1,5 +1,7 @@
 '''
-Longest substring without repeating characters
+space complexity: O(n)
+
+**** longest substring without repeating characters ****
 '''
 
 class LongestSubstringNoRepeat:
@@ -7,17 +9,22 @@ class LongestSubstringNoRepeat:
         m = {}
         left = 0
         right = 0
-        ans = 0
+        result = 0
         n = len(s)
         while (left < n and right < n):
-            el = s[right]
-            if (el in m):
-                left = max(left,m[el] + 1)
-            m[el] = right
-            ans = max(ans,right - left + 1)
+            element = s[right]
+            if (element in m):
+                left = max(left,m[element] + 1)
+            m[element] = right
+            result = max(result,right - left + 1)
             right += 1
-        return ans
+        return result
 
 l = LongestSubstringNoRepeat()
-result = l.start("blueskydown")
-print("result: ",result)
+print("**** longest substring without repeating characters *****")
+first = "bluesbbbblues"
+second = "abaxday"
+firstResult = l.start(first)
+secondResult = l.start(second)
+print("first result of {0}: {1}".format(first,firstResult))
+print("second result of {0}: {1}".format(second,secondResult))
