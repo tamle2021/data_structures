@@ -2,6 +2,8 @@
 In computer science, a queue is a collection of entities that are maintained in a sequence and can be modified by the addition of entities
 at one end of sequence and the removal of entities from other end of sequence.  This queue implementation uses array and follows first in
 first out structure.
+
+**** queue using array ****
 */
 #include <stdio.h>
 #include <stdlib.h>
