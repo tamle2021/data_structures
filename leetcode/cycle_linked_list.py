@@ -1,9 +1,9 @@
 '''
-Given head, the head of a linked list, determine if the linked list has a cycle in it.
-There is a cycle in linked list if there is some node in list that can be reached again by continuously
-following the next pointer.
+Given head, which is the head of a linked list, determine if the linked list has a cycle in it.
+There is cycle in a linked list if there is some node in list that can be reached again by continuously following
+next pointer.
 
-checks to see if linked list has a cycle
+**** cycle in a linked list ****
 '''
 
 class ListNode:
@@ -37,4 +37,5 @@ node8.next = node9
 node9.next = node5
 
 result = h.start(node1)
-print("has cycle: {0}".format(result))
+print("**** cycle in a linked list ****")
+print("has cycle? {0}".format(str(result).lower()))
