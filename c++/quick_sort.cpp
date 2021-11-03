@@ -55,7 +55,7 @@ void quickSort(int A[],int l,int h) {
 
 int main() {
     cout << "**** quick sort ****\n";
-    int A[]={9,14,77,0,-4,25,30,59,2,45,12,23},numElem= 12,i;
+    int A[] = {9,14,77,0,-4,25,30,59,2,45,12,23},numElem = 12,i;
 
      cout << "before sort: " << endl;
      for (i = 0; i < numElem; i++)
