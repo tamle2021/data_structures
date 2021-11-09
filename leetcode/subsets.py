@@ -15,6 +15,8 @@ constraints:
 -10 <= nums[i] <= 10
 All the numbers of nums are unique.
 
+**** subsets of set ****
+
 '''
 
 from typing import List
@@ -39,5 +41,11 @@ class Subsets:
         return ans
 
 s = Subsets()
-result = s.getSubsets([1,2,3])
-print(result)
+print("**** subsets of set ****")
+set1 = [1,2,3]
+set2 = [4,6,8,10]
+result1 = s.getSubsets(set1)
+result2 = s.getSubsets(set2)
+print("subsets of %s: %s" % (set1,result1))
+print("subsets of %s: %s" % (set2,result2))
+
