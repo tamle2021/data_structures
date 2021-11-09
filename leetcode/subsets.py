@@ -16,7 +16,6 @@ constraints:
 All the numbers of nums are unique.
 
 **** subsets of set ****
-
 '''
 
 from typing import List
