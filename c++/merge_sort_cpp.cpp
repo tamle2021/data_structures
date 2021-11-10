@@ -1,7 +1,7 @@
 /*
 
 
-**** merge array(s) ****
+**** merge sort c++ implementation ****
 */
 #include <iostream>
 
@@ -64,7 +64,7 @@ void mergeSingle(int A[],int low,int mid,int high) {
 }
 
 int main() {
-    cout << "**** merge arrays *****\n";
+    cout << "**** merge sort c++ implementation *****\n";
     // arrays have to be sorted first
     int A[] = {-6,3,5,14,21,44,92,212};
     int m = sizeof(A) / sizeof(A[0]);
