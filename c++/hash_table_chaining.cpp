@@ -1,5 +1,4 @@
 /*
-*** Hashing ***
 With direct addressing, the element with key k is placed in slot k. With hashing, this element is stored
 in the slot h(k). This means that a hash function h(k) is used to compute the slot or index into the table
 using the key. The hash function h maps the universe U into slots in the table T[0, 1, 2, . . .  m-1]
@@ -13,6 +12,8 @@ chaining as we would discuss next.
 One method of handling collision in a hash table is by chaining. In chaining, one uses a linked list to manage
 collision.  Elements that hash to the same slot are placed in a linked list and the slot in the hash table would
 contain a pointer to the head of this hash table.
+
+*** hash table chaining ***
 */
 #include <iostream>
 
@@ -38,7 +39,7 @@ public:
 
 HashTable::HashTable() {
 	HT = new Node* [10];
-	for (int i=0; i<10; i++){
+    for (int i=0; i<10; i++){
 		HT[i] = nullptr;
 	}
 }
@@ -102,6 +103,7 @@ HashTable::~HashTable() {
 }
 
 int main() {
+    cout << "**** hash table chaining ****\n";
 	int A[] = {16,12, 25, 39,6,122,5,68,75,99,101,0,77,-11};
 	int n = sizeof(A) / sizeof(A[0]);
 	HashTable h;
