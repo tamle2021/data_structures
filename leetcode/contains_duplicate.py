@@ -17,7 +17,7 @@ def containsDuplicate(nums: List[int]) -> bool:
     m = defaultdict(int)
 
     for num in nums:
-        if m[num]:
+        if (m[num]):
             return True
         m[num] += 1
     return False
