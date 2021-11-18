@@ -9,7 +9,6 @@ output: true
 **** contains duplicate ****
 
 '''
-
 from collections import defaultdict
 from typing import List
 
