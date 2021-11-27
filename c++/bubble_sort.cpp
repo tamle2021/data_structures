@@ -1,7 +1,10 @@
 /*
-Bubble sort, also referred to as comparison sort, is a simple sorting algorithm that repeatedly goes through list,
-compares adjacent elements, and swaps them if they are in the wrong order.
+Bubble sort, also referred to as comparison sort, is a sorting algorithm that repeatedly goes through list and compares
+and swaps adjacent elements.
 
+time complexity: O(n^2)
+
+**** bubble sort ****
 */
 
 #include <stdio.h>
@@ -33,7 +36,7 @@ void bubble(int A[],int n) {
 
 int main() {
     cout << "**** bubble sort ****\n";
-    int A[] = {111,12,1,74,0,9,-21,17,51,18,33,41}, n = 12, i;
+    int A[] = {111,12,1,74,0,9,-21,17,51,18,94,41},n = 12, i;
 
     cout  << "before sort: \n";
     for (i = 0; i < 11; i++)
