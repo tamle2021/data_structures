@@ -1,7 +1,7 @@
 /*
 example => enter number of terms: 2
-                    enter each term with coeff and exponent: 6 1
-                                                                                        4 0
+           enter each term with coeff and exponent: 6 1
+                                                    4 0
 
 **** polynomial linked list ****
 
