@@ -1,5 +1,10 @@
 '''
-Adjacency matrix - undirected graph implementation
+An adjacency matrix is a square matrix used to represent a finite graph. The elements of matrix indicate whether
+pairs of vertices are adjacent or not in the graph.
+
+
+**** undirected graph adjacency matrix ****
+
 '''
 
 from collections import defaultdict
@@ -25,8 +30,9 @@ class Graph:
                     print(i, "->", j)
 
     def displayGraph(self):
-        print("matrix undirected graph: {y}".format(y=self.graph))
+        print("{y}".format(y=self.graph))
 
+print("**** undirected graph adjacency matrix ****")
 g = Graph(6)
 g.insertEdge(1,2)
 g.insertEdge(0,1)
