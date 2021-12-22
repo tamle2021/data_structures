@@ -10,7 +10,7 @@ import java.util.Arrays;
 class TwoSum {
     public static void main(String[] args) {
         TwoSum ts = new TwoSum();
-        int[] array1 =  {4,9,13,11,0,-4,34};
+        int[] array1 = {4,9,13,11,0,-4,34};
         int target = 45;
 
         System.out.println("**** two sum ****");
@@ -23,11 +23,11 @@ class TwoSum {
         System.out.println("result: " + Arrays.toString(result));
     }
 
-    public int[] begin(int[] nums, int target) {
+    public int[] begin(int[] nums,int target) {
         for (int i = 0; i < nums.length; i++) {
             for (int j = i + 1; j < nums.length; j++) {
                 if (nums[i] + nums[j] == target) {
-                    return new int[]{i, j};
+                    return new int[] {i,j};
                 }
             }
         }
