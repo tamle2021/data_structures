@@ -1,5 +1,4 @@
 '''
-
 Depth first search using stack.
 
 time complexity: O(V + E)
