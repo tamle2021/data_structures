@@ -1,8 +1,14 @@
 '''
-Depth first search using stack
+
+Depth first search using stack.
+
 time complexity: O(V + E)
 space complexity: O(V)
+
+
+**** depth first search ****
 '''
+
 from collections import defaultdict
 
 class Graph:
@@ -18,26 +24,28 @@ class Graph:
         stack.append(startNode)
 
         while (len(stack)):
-            cur = stack[-1]
+            current = stack[-1]
             stack.pop()
 
-            if (cur not in visited):
-                print(cur,end=" ")
-                visited.add(cur)
+            if (current not in visited):
+                print(current,end=" ")
+                visited.add(current)
 
-            for vertex in self.graph[cur]:
+            for vertex in self.graph[current]:
                 if (vertex not in visited):
                     stack.append(vertex)
 
     def printGraph(self):
         print("graph: {0}".format(self.graph))
 
+print("**** depth first search ****")
 g = Graph()
 g.insertEdge(2,1)
 g.insertEdge(2,5)
 g.insertEdge(5,6)
 g.insertEdge(5,8)
 g.insertEdge(6,9)
+g.insertEdge(8,4)
 
 # start at node 2
 g.depthFirstSearch(2)
