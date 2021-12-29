@@ -1,14 +1,21 @@
 '''
-An anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically
-using all the original letters exactly once.  Another words, it is a permutation of letters to make a legal word,
-where order matters.
+Given an array of strings, group the anagrams together. One can return the answer in any order.  An anagram is a word or
+phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
 
-Given an array of strings, group the anagrams together.
+input: strs = ["eat","tea","tan","ate","nat","bat"]
+output: [["bat"],["nat","tan"],["ate","eat","tea"]]
 
 constraints:
-1 <= strs.length <= 104
+1 <= strs.length <= 10^4
 0 <= strs[i].length <= 100
-strs[i] consists of lower-case English letters.
+strs[i] consists of lower-case english letters
+
+time complexity: O(N * M * log(M))
+N => length of input array
+M => length of largest string in array
+
+**** group anagrams ****
+
 '''
 from typing import List
 
@@ -31,6 +38,7 @@ class GroupAnagrams:
 
         return result
 
+print("**** group anagrams ****")
 anagram1 = ["eat","tea","tan","ate","nat","bat"]
 anagram2 = ["ant","tan","nat","tab","bat","sky","key","lap","ape","pea","eye","yee","soy","gin","pus","usp"]
 g = GroupAnagrams()
