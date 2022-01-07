@@ -61,7 +61,6 @@ num6 = [-1,3]
 num7 = [1,-1]
 num8 = [-2,1]
 
-
 print("**** four sum ****")
 f = FourSum()
 result1,map1 = f.begin(num1,num2,num3,num4)
