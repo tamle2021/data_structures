@@ -1,5 +1,8 @@
 '''
-Doubly-linked list with insertion implementation
+A doubly-linked list contains two pointers and a data element.
+
+**** doubly-linked list insertion ****
+
 '''
 class Node:
     def __init__(self,data):
@@ -15,8 +18,8 @@ class LinkedList:
         start = self.head
         n = len(arr)
         temp = start
-        i = 0
 
+        i = 0
         while (i < n):
             newNode = Node(arr[i])
             if (i == 0):
@@ -38,7 +41,7 @@ class LinkedList:
             linkedListStr += (str(temp.data) + " ")
             temp = temp.next
 
-        print(linkedListStr)
+        return linkedListStr
 
     def countList(self):
         temp = self.head
@@ -85,8 +88,17 @@ class LinkedList:
         newNode.prev = temp
         return self.head
 
+print("**** doubly-linked list insertion ****")
 arr = [5,45,111,23,77,41]
+
+appendStr = ""
+for i in arr:
+    appendStr += str(i) + " "
+print("before insertion: ",appendStr)
+
 doublyLinkedList = LinkedList()
 doublyLinkedList.createList(arr)
 doublyLinkedList.insertAtLocation(92,4)
-doublyLinkedList.printList()
+doublyLinkedList.insertAtLocation(-6,1)
+print("after insertion: ",doublyLinkedList.printList())
+
