@@ -23,9 +23,11 @@ constraints:
 m == s.length
 n == t.length
 1 <= m, n <= 105
-s and t consist of uppercase and lowercase English letters
-'''
+s and t consist of uppercase and lowercase english letters
 
+**** minimum window substring ****
+
+'''
 class MinimumWindowSubstring:
     def start(self,s: str,t: str) -> str:
         len1 = len(s)
@@ -50,10 +52,11 @@ class MinimumWindowSubstring:
             if (hashString.get(s[right]) is None):
                 hashString[s[right]] = 0
             hashString[s[right]] += 1
+
             if(hashPattern.get(s[right]) is None):
                 hashPattern[s[right]] = 0
             if (hashPattern.get(s[right]) != 0 and hashString.get(s[right]) <= hashPattern.get(s[right])):
-                # keep incrementing the count if string hash is less then pattern hash
+                # keep incrementing count if string hash is less then pattern hash
                 count += 1
             # count == len2 means a window is found that contains all character of pattern string
             if (count == len2):
@@ -68,7 +71,7 @@ class MinimumWindowSubstring:
                     # increment left pointer
                     left += 1
 
-                # calculate the windows length
+                # calculate windows length
                 windowLen = right - left + 1
                 if (minLen > windowLen):
                     minLen = windowLen
@@ -80,10 +83,18 @@ class MinimumWindowSubstring:
 
 
 m = MinimumWindowSubstring()
-s = "ADOBECODEBXANCEE"
-t = "ABC"
 print("**** minimum window substring **** ")
-result = m.start(s,t)
-print("s: %s" % s)
-print("t: %s" % t)
-print("result: {0}".format(result))
+s1 = "ADOBECODEBXANCEE"
+t1 = "ABC"
+result1 = m.start(s1,t1)
+print("s1: %s" % s1)
+print("t1: %s" % t1)
+print("result 1: {0}\n".format(result1))
+
+s2 = "92xbbcz21qrstttty"
+t2 = "xyz"
+result2 = m.start(s2,t2)
+print("s2: %s" % s2)
+print("t2: %s" % t2)
+print("result 2: {0}".format(result2))
+
