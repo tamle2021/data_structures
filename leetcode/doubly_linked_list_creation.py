@@ -1,5 +1,8 @@
 '''
-Doubly-linked list implementation
+
+
+**** doubly-linked list creation ****
+
 '''
 class Node:
     def __init__(self,data):
@@ -33,15 +36,19 @@ class LinkedList:
     def printList(self):
         temp = self.head
         linkedListStr = ""
-        # concatenate and move the pointer
+        # concatenate and move pointer
         while (temp):
             linkedListStr += (str(temp.data) + " ")
             temp = temp.next
 
         print(linkedListStr)
 
-arr = [4,6,11,-5,22,87,101]
-print("**** doubly-linked list ****")
+print("**** doubly-linked list creation ****")
+arr1 = [4,6,11,-5,22,87,101]
+arr2 = [0,-5,15,22,115,121,44,1]
 doublyLinkedList = LinkedList()
-doublyLinkedList.createList(arr)
+doublyLinkedList.createList(arr1)
+doublyLinkedList.printList()
+
+doublyLinkedList.createList(arr2)
 doublyLinkedList.printList()
