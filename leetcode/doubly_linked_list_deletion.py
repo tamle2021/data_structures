@@ -1,5 +1,7 @@
 '''
-Doubly-linked list with deletion implementation
+
+**** doubly-linked list deletion ****
+
 '''
 class Node:
     def __init__(self,data):
@@ -14,10 +16,10 @@ class LinkedList:
     def createList(self,arr):
         start = self.head
         n = len(arr)
+        # declare new node and temp pointer
         temp = start
-        i = 0
 
-        # iterate for array length
+        i = 0
         while (i < n):
             newNode = Node(arr[i])
             if (i == 0):
@@ -40,14 +42,15 @@ class LinkedList:
         while (temp):
             linkedListStr += (str(temp.data) + " ")
             temp = temp.next
-        print(linkedListStr)
 
-    # count elements
+        return linkedListStr
+
+    # count number of elements
     def countList(self):
-        # temp pointer to traverse the list
+        # temp pointer to traverse list
         temp = self.head
-        count = 0
 
+        count = 0
         while (temp is not None):
             temp = temp.next
             count = count + 1
@@ -59,6 +62,7 @@ class LinkedList:
         temp = self.head
         count = self.countList()
 
+        # can't have index greater than count
         if (count < index):
             return temp
 
@@ -87,9 +91,16 @@ class LinkedList:
 
         return self.head
 
-print("**** doubly linked list with deletion ****")
-arr = [5,11,-14,31,92,247]
+print("**** doubly-linked list deletion ****")
+arr = [5,11,0,-14,31,92,247,2]
+deleteIndex = 3
+
+strArray = ""
+for i in arr:
+    strArray = strArray + str(i) + " "
+print("before delete:",strArray)
+
 doublyLinkedList = LinkedList()
 doublyLinkedList.createList(arr)
-doublyLinkedList.deleteAtLocation(3)
-doublyLinkedList.printList()
+doublyLinkedList.deleteAtLocation(deleteIndex)
+print("after delete at index {0}: {1}".format(deleteIndex,doublyLinkedList.printList()))
