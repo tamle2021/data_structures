@@ -19,15 +19,15 @@ struct Queue {
 };
 
 void createQueue(struct Queue *q,int size) {
-    // allocate memory
     q->size = size;
     q->front = q->rear = -1;
+    // allocate memory
     q->Q = (int *)malloc(q->size * sizeof(int));
 }
 
 void enqueue(struct Queue *q,int x) {
     if (q->rear == q->size - 1)
-        printf("queue is full");
+        printf("queue is full....");
     else {
         q->rear++;
         q->Q[q->rear] = x;
@@ -57,10 +57,12 @@ void display(struct Queue q) {
 int main() {
     cout << "**** queue using array ****\n";
     struct Queue q;
-    createQueue(&q,7);
+    createQueue(&q,9);
     enqueue(&q,5);
     enqueue(&q,15);
     enqueue(&q,33);
+    enqueue(&q,0);
+    enqueue(&q,-7);
     enqueue(&q,25);
     enqueue(&q,111);
     display(q);
