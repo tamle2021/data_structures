@@ -1,7 +1,10 @@
 /*
-Double hashing is a collision resolving technique in open addressed hash table.  Double hashing uses idea of applying a second hash function
-to key when a collision occurs.  First hash function is typically hash1(key) = key % TABLE_SIZE.
-Second hash function can be hash2(key) = PRIME - (key % PRIME) where PRIME is a prime number smaller than TABLE_SIZE.
+Double hashing is a collision resolving technique in open addressed hash table.  Double hashing utilizes idea of applying second
+hash function to key when collision occurs.  First hash function can be h1(key) = key % table size.  Second hash function can be
+h2(key) = prime - (key % prime) where prime is a prime number smaller than table size.
+
+**** double hashing ****
+
 */
 #include <iostream>
 #define SIZE 10
@@ -10,9 +13,9 @@ Second hash function can be hash2(key) = PRIME - (key % PRIME) where PRIME is a 
 using namespace std;
 
 template <class T>
-void printVector(T& vec,int n, string s){
+void printArray(T& vec,int n,string s) {
     cout << s << ": [" << flush;
-    for (int i = 0; i < n; i++){
+    for (int i = 0; i < n; i++) {
         cout << vec[i] << flush;
         if (i < n - 1) {
             cout << ", " << flush;
@@ -25,61 +28,70 @@ int hashIt(int key) {
     return key % SIZE;
 }
 
-int primeHash(int key){
+int secondHash(int key){
     return PRIME - (key % PRIME);
 }
 
-int doubleHash(int H[],int key){
+int doubleHash(int H[],int key) {
     int idx = hashIt(key);
     int i = 0;
-    while (H[(hashIt(idx) + i * primeHash(idx)) % SIZE] != 0) {
+    while (H[(hashIt(idx) + i * secondHash(idx)) % SIZE] != 0) {
         i++;
     }
-    return (idx + i * primeHash(idx)) % SIZE;
+    return (idx + i * secondHash(idx)) % SIZE;
 }
 
-void Insert(int H[],int key) {
+void insertIt(int H[],int key) {
     int idx = hashIt(key);
 
     if (H[idx] != 0) {
-        idx = doubleHash(H, key);
+        idx = doubleHash(H,key);
     }
+
     H[idx] = key;
 }
 
-int searchKey(int H[], int key){
+int searchIt(int H[],int key) {
     int idx = hashIt(key);
     int i = 0;
-    while (H[(hashIt(idx) + i * primeHash(idx)) % SIZE] != key){
+
+    while (H[(hashIt(idx) + i * secondHash(idx)) % SIZE] != key) {
         i++;
-        if (H[(hashIt(idx) + i * primeHash(idx)) % SIZE] == 0){
+        int hSize = sizeof(H) / sizeof(H[0]);
+        // check if end of hash array
+        if (i > hSize)
+            return -1;
+
+        if (H[(hashIt(idx) + i * secondHash(idx)) % SIZE] == 0) {
             return -1;
         }
+
     }
-    return (hashIt(idx) + i * primeHash(idx)) % SIZE;
+    return (hashIt(idx) + i * secondHash(idx)) % SIZE;
 }
 
 int main() {
+    // can't has zero
     cout << "**** double hashing ****\n";
-
-    int A[] = {5,25,0,-5,15,35,95,22,101};
+    int A[] = {44,5,7,11,22,93,9,-6,0};
     int n = sizeof(A) / sizeof(A[0]);
-    printVector(A,n,"array");
+    printArray(A,n,"array");
 
     // hash table
     int HT[10] = {0};
     for (int i = 0; i < n; i++) {
-        Insert(HT,A[i]);
+        insertIt(HT,A[i]);
     }
-    printVector(HT,SIZE,"hash table");
+    printArray(HT,SIZE,"hash table");
 
-    cout << "search key 22\n";
-    int index = searchKey(HT,22);
-    cout << "key found at: " << index << endl;
+    int index = searchIt(HT,5);
+    cout << "search key 5 --- key found at index: " << index << endl;
 
-    cout << "search key 44\n";
-    index = searchKey(HT,44);
-    cout << "key found at: " << index << endl;
+    index = searchIt(HT,21);
+    cout << "search key 21 --- key found at: " << index << endl;
+
+    index = searchIt(HT,11);
+    cout << "search key 11 --- key found at: " << index << endl;
 
     return 0;
 }
