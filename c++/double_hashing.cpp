@@ -71,7 +71,7 @@ int searchIt(int H[],int key) {
 }
 
 int main() {
-    // can't has zero
+    // can't hash zero
     cout << "**** double hashing ****\n";
     int A[] = {44,5,7,11,22,93,9,-6,0};
     int n = sizeof(A) / sizeof(A[0]);
