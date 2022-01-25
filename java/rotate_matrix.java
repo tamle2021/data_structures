@@ -1,7 +1,7 @@
 /*
 Given an n x n 2D matrix representing an image, perform rotation on image by 90 degrees (clockwise).
 One has to rotate the image in-place, which means to modify the input 2D matrix directly.
-Do not allocate another 2D matrix to do the rotation.
+Do not allocate another 2D matrix to do rotation.
 
 **** rotate matrix or image ****
  */
@@ -18,7 +18,6 @@ class RotateMatrix {
         rm.start(matrix);
         System.out.println("after rotate: ");
         System.out.println(Arrays.deepToString(matrix));
-
     }
 
     public boolean start(int[][] matrix) {
