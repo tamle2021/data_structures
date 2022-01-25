@@ -21,9 +21,11 @@ class RotateMatrix {
     }
 
     public boolean start(int[][] matrix) {
+        // if no rows or number of rows does not equal number of columns
         if (matrix.length == 0 || matrix.length != matrix[0].length)
             return false;
         int n = matrix.length;
+        // rotations
         for (int layer = 0; layer < n / 2; layer++) {
             int first = layer;
             int last = n - 1 - layer;
