@@ -1,11 +1,11 @@
 '''
 One is given an array of k-linked lists of lists and each linked list is sorted in ascending order.
-Merge all the linked lists into one sorted linked-list and return it.
+Merge all linked lists into one sorted linked-list and return it.
 
 input: lists = [[1,4,5],[1,3,4],[2,6]]
 output: [1,1,2,3,4,4,5,6]
-the linked lists are [1->4->5, 1->3->4, 2->6]
-merging them into one sorted list => 1->1->2->3->4->4->5->6
+The linked lists are [1->4->5, 1->3->4, 2->6].
+Merging them into one sorted list, we get 1->1->2->3->4->4->5->6.
 
 constraints:
 k == lists.length
@@ -14,6 +14,8 @@ k == lists.length
 -10^4 <= lists[i][j] <= 10^4
 lists[i] is sorted in ascending order
 The sum of lists[i].length will not exceed 10^4.
+
+**** merge k-sorted lists ****
 
 '''
 from typing import List
@@ -68,7 +70,7 @@ class MergeKLists:
 
         return lists[0]
 
-print("**** merge k sorted lists ****")
+print("**** merge k-sorted lists ****")
 m = MergeKLists()
 # sorted lists => [[2,4,9,11],[3,5,7,15],[6,12,18]]
 linkedList1Node2 = Node(2)
@@ -80,37 +82,46 @@ linkedList1Node2.next = linkedList1Node4
 linkedList1Node4.next = linkedList1Node9
 linkedList1Node9.next = linkedList1Node11
 
-linkedList2Node3 = Node(3)
+linkedList2Node4 = Node(4)
 linkedList2Node5 = Node(5)
 linkedList2Node7 = Node(7)
 linkedList2Node15 = Node(15)
 # link nodes
-linkedList2Node3.next = linkedList2Node5
+linkedList2Node4.next = linkedList2Node5
 linkedList2Node5.next = linkedList2Node7
 linkedList2Node7.next = linkedList2Node15
 
 linkedList3Node6 = Node(6)
 linkedList3Node12 = Node(12)
 linkedList3Node18 = Node(18)
+linkedList3Node52 = Node(52)
 # link nodes
 linkedList3Node6.next = linkedList3Node12
 linkedList3Node12.next = linkedList3Node18
+linkedList3Node18.next = linkedList3Node52
 
 sortedLists = []
-resultList = []
 beforeList = []
+afterList = []
+aList = []
+_3List = []
+
 sortedLists.append(linkedList1Node2)
-sortedLists.append(linkedList2Node3)
+sortedLists.append(linkedList2Node4)
 sortedLists.append(linkedList3Node6)
 
 for i in sortedLists:
-    while (i != None):
-        beforeList.append(i.val)
+    aList = []
+    while(i != None):
+        aList.append(i.val)
         i = i.next
-print("before:",beforeList)
+
+    _3List.append(aList)
+
+print("before: %s" % _3List)
 
 result = m.startProcess(sortedLists)
 while (result != None):
-    resultList.append(result.val)
+    afterList.append(result.val)
     result = result.next
-print("after: {0}".format(resultList))
+print("after: {0}".format(afterList))
