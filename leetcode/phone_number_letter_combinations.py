@@ -5,7 +5,7 @@ and 1 does not map to any letters.
 
 example 1:
 input: digits = "23"
-0utput: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
+output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
 
 example 2:
 input: digits = ""
@@ -18,6 +18,9 @@ output: ["a","b","c"]
 constraints:
 0 <= digits.length <= 4
 digits[i] is a digit in the range ['2', '9']
+
+**** phone number letter combinations ****
+
 '''
 from typing import List
 
@@ -51,10 +54,11 @@ class LetterCombinations:
         m['9'] = "wxyz"
 
         self.backtracking(answer,m,digits,"",0)
-
         return answer
 
+print("**** phone number letter combinations ****")
+number = "35"
 l = LetterCombinations()
-result = l.begin("24")
+result = l.begin(number)
 
-print("result: {0}".format(result))
+print("number: {0}\ncombination(s): {1}".format(number,result))
