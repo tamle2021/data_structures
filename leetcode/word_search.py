@@ -47,7 +47,7 @@ class WordSearch:
 
         if (len(cur) > len(word)):
             return False
-        if (cur[len(cur) - 1] != word[len(cur)-  1]):
+        if (cur[len(cur) - 1] != word[len(cur)- 1]):
             return False
         if (cur == word):
             return True
