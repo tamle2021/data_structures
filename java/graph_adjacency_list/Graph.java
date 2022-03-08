@@ -1,10 +1,10 @@
-  /*
- Graphs come in different forms such as simple graph, undirected or directed graph, cyclic or acyclic graph, labeled graph,
+ /*
+Graphs come in different forms such as simple graph, undirected or directed graph, cyclic or acyclic graph, labeled graph,
 weighted graph, and infinite graph.
 
-  **** graph using adjacency list ****
+**** graph using adjacency list ****
 
-   */
+*/
   package graph_adjacency_list;
 
   import java.util.*;
