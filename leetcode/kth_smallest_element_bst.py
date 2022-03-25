@@ -70,6 +70,7 @@ k.insert(tree,Node(11))
 k.insert(tree,Node(8))
 k.insert(tree,Node(14))
 
+print("preorder: [5,1,11,8,13]")
 result = k.start(tree,4)
 print("result: %s" % result)
 
