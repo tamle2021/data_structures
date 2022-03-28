@@ -31,7 +31,6 @@ def preorder(node):
         preorder(node.right)
 
 
-
 tree = Node(45)
 '''
 45 is the root
