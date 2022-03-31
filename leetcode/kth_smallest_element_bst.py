@@ -59,8 +59,6 @@ class KthSmallestElementBst():
             else:
                 self.insert(root.left,node)
 
-
-
 print("**** kth smallest element in binary search tree ****")
 tree = Node(5)
 
