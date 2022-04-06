@@ -61,7 +61,7 @@ void Dequeue::enqueueFront(int x) {
     else {
         Q[front] = x;
         front--;
-        cout << "enqueued...." << endl;
+        cout << "enqueue front...." << endl;
     }
 }
 
@@ -72,6 +72,7 @@ void Dequeue::enqueueRear(int x) {
     else {
         rear++;
         Q[rear] = x;
+        cout << "enqueue rear....\n";
     }
 }
 
@@ -84,6 +85,7 @@ int Dequeue::dequeueFront() {
     else {
         x = Q[front];
         front++;
+        cout << "dequeue front....\n";
     }
 
     return x;
@@ -98,7 +100,7 @@ int Dequeue::dequeueRear() {
     else {
         x = Q[rear];
         rear--;
-        cout << "dequeued...." << endl;
+        cout << "dequeue rear...." << endl;
     }
 
     return x;
@@ -108,7 +110,7 @@ void Dequeue::displayIt() {
     for (int i = front + 1; i <= rear; i++) {
         cout << Q[i] << flush;
         if (i < rear) {
-            cout << " -> " << flush;
+            cout << " => " << flush;
         }
     }
 
@@ -117,11 +119,12 @@ void Dequeue::displayIt() {
 
 int main() {
     cout << "**** double-ended queue using array c++ implementation ****\n";
-    int A[] = {14,30,0,4,2};
-    int B[] = {3,41,64,11};
     int x = 0;
+    int A[] = {14,30,0,4,2};
+    int B[] = {3,41,64,11,7};
 
     Dequeue deq(sizeof(A) / sizeof(A[0]));
+    // Dequeue deqB(sizeof(B) / sizeof(B[0]));
 
     for (long long unsigned int i = 0; i < sizeof(A) / sizeof(A[0]); i++) {
         deq.enqueueRear(A[i]);
