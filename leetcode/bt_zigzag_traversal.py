@@ -27,7 +27,7 @@ The number of nodes in tree is the range [0,2000].
 -100 <= Node.val <= 100
 
 
-**** binary tree zigzag level order traversal ****
+**** binary tree zigzag level-order traversal ****
 
 '''
 from typing import List
@@ -101,6 +101,7 @@ def inOrder(node,nodeList):
 
     return nodeList
 
+print("**** binary tree zigzag level-order traversal ****")
 b = BtZigZagTraversal()
 nodeList = []
 
