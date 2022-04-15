@@ -36,6 +36,7 @@ constraints:
 '''
 class UniquePaths():
     def start(self,m: int,n: int) -> int:
+        # initialize m x n matrix
         dp = [[0 for x in range(m)] for y in range(n)]
         for i in range(m):
             dp[0][i] = 1
