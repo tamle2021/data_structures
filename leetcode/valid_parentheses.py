@@ -5,15 +5,15 @@ is valid.
 An input string is valid if open brackets are closed by similar type of brackets and open brackets are closed in
 correct order.
 
-example 1:
+# example 1
 input: s = "()"
 output: true
 
-example 2:
+# example 2
 input: s = "()[]{}"
 output: true
 
-example 3:
+# example 3
 input: s = "(]"
 output: false
 
@@ -22,6 +22,7 @@ constraints:
 s consists of parentheses of '()[]{}'
 
 **** valid parentheses ****
+
 
 '''
 class ValidParentheses():
