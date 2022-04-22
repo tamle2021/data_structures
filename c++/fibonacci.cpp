@@ -1,5 +1,5 @@
 /*
-In fibonacci sequenc, the current number is sum of previous two ones.
+In fibonacci sequence, the current number is sum of previous two ones.
 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144....
 
 
