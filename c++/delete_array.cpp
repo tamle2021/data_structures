@@ -2,7 +2,7 @@
 
 
 
-**** delete from array ****
+**** delete array ****
 
 */
 #include <stdio.h>
