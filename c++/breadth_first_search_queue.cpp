@@ -1,31 +1,34 @@
 /*
-Breadth first search algorithm is a graph traversing technique, where one selects a random initial node (source or root node) and starts
-traversing the graph layer-wise in such a way that all the nodes and their respective children nodes are visited and explored.
-Breadth first search using queue
-FIFO
+Breadth-first search algorithm is a graph traversing technique, where one selects a random initial node (source or root node)
+and starts traversing the graph layer-wise in such a way that all the nodes and their children nodes are visited
+and explored.
+
+
+**** breadth-first search using queue ****
+
 */
 #include <iostream>
 #include <queue>
 
 using namespace std;
 
-void BFS(int vtx,int A[][8],int n) {
+void start(int vertex,int A[][8],int n) {
     queue<int> Q;
     int visited[8] {0};
 
     // visit vertex
-    cout << vtx << " " << flush;
-    visited[vtx] = 1;
-    Q.emplace(vtx);
+    cout << vertex << " " << flush;
+    visited[vertex] = 1;
+    Q.emplace(vertex);
 
     // explore
     while (!Q.empty()) {
-        // vertex u for exploring
         int u = Q.front();
         Q.pop();
-        // adjacent vertices of vertex u
+
+        // adjacent vertices of u
         for (int v = 1; v <= n; v++) {
-		    // adjacent vertex and not visited
+		    // mark it visited if not and place in queue
             if (A[u][v] == 1 && visited[v] == 0) {
                 cout << v << " " << flush;
                 // visit vertex
@@ -38,6 +41,7 @@ void BFS(int vtx,int A[][8],int n) {
 }
 
 int main () {
+    cout << "**** breadth-first search using queue ****\n";
     int A[8][8] = {
         {0, 0, 0, 0, 0, 0, 0, 0},
         {0, 0, 1, 1, 1, 0, 0, 0},
@@ -48,15 +52,18 @@ int main () {
         {0, 0, 0, 0, 0, 1, 0, 0},
         {0, 0, 0, 0, 0, 1, 0, 0}};
 
-    cout << "*****breadth first search*****\n";
-    cout << "v1: " << flush;
-    BFS(1, A, 8);
+    int vertex2 = 2;
+    int vertex5 = 5;
+    int vertex7 = 7;
 
-    cout << "v3: " << flush;
-    BFS(3, A, 8);
+    cout << "starting from vertex "  << vertex2 << ": "<< flush;
+    start(vertex2,A,8);
 
-    cout << "v4: " << flush;
-    BFS(4, A, 8);
+    cout << "starting from vertex " << vertex5 << ": " << flush;
+    start(vertex5,A,8);
+
+    cout << "starting from vertex " << vertex7 << ": " << flush;
+    start(vertex7,A,8);
 
     return 0;
 }
