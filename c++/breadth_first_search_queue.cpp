@@ -28,7 +28,7 @@ void start(int vertex,int A[][8],int n) {
 
         // adjacent vertices of u
         for (int v = 1; v <= n; v++) {
-		    // mark it visited if not and place in queue
+		    // mark it visited if unvisited and place in queue
             if (A[u][v] == 1 && visited[v] == 0) {
                 cout << v << " " << flush;
                 // visit vertex
@@ -43,14 +43,14 @@ void start(int vertex,int A[][8],int n) {
 int main () {
     cout << "**** breadth-first search using queue ****\n";
     int A[8][8] = {
-        {0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 1, 1, 1, 0, 0, 0},
-        {0, 1, 0, 1, 0, 0, 0, 0},
-        {0, 1, 1, 0, 1, 1, 0, 0},
-        {0, 1, 0, 1, 0, 1, 0, 0},
-        {0, 0, 0, 1, 1, 0, 1, 1},
-        {0, 0, 0, 0, 0, 1, 0, 0},
-        {0, 0, 0, 0, 0, 1, 0, 0}};
+        {0,0,0,0,0,0,0,0},
+        {0,0,1,1,1,0,0,0},
+        {0,1,0,1,0,0,0,0},
+        {0,1,1,0,1,1,0,0},
+        {0,1,0,1,0,1,0,0},
+        {0,0,0,1,1,0,1,1},
+        {0,0,0,0,0,1,0,0},
+        {0,0,0,0,0,1,0,0}};
 
     int vertex2 = 2;
     int vertex5 = 5;
