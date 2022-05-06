@@ -5,7 +5,7 @@ convert string 2 to string 1 using delete, insert, or replace operations
 
 
 
-**** convert string top down ****
+**** convert string top down bottom up ****
 
 */
 public class ConvertStringTopDownBottomUp {
@@ -19,15 +19,12 @@ public class ConvertStringTopDownBottomUp {
             // if reach end of s1, then insert all remaining characters of s2
             if (i1 == s1.length())
                 dp[i1][i2] = s2.length() - i2;
-
             // if reach end of s2, then delete all remaining characters of s1
             else if (i2 == s2.length())
                 dp[i1][i2] = s1.length() - i1;
-
             // strings have a matching character so recursively match for remaining lengths
             else if (s1.charAt(i1) == s2.charAt(i2))
-                dp[i1][i2] = findMinimumOperationsTd(dp,s1,s2,i1+1,i2+1);
-
+                dp[i1][i2] = findMinimumOperationsTd(dp,s1,s2,i1 + 1,i2 + 1);
             else {
                 int c1 = findMinimumOperationsTd(dp,s1,s2,i1 + 1,i2); // delete
                 int c2 = findMinimumOperationsTd(dp,s1,s2,i1,i2 + 1); // insert
@@ -45,11 +42,9 @@ public class ConvertStringTopDownBottomUp {
         // if reach end of s1, then insert all remaining characters of s2
         for (int i1 = 0; i1 <= s1.length(); i1++)
             dp[i1][0] = i1;
-
         // if reach end of s2, then delete all remaining characters of s1
         for (int i2 = 0; i2 <= s2.length(); i2++)
             dp[0][i2] = i2;
-
         for (int i1 = 1; i1 <= s1.length(); i1++) {
             // if strings have a matching character, then recursively match for remaining lengths
             for (int i2 = 1; i2 <= s2.length(); i2++) {
@@ -66,7 +61,7 @@ public class ConvertStringTopDownBottomUp {
     }
 
     public static void main(String[] args) {
-        System.out.println("**** convert string top down ****");
+        System.out.println("**** convert string top down bottom up ****");
         int result1, result2;
         String str1 = new String("lobster");
         String str2 = new String("123ster");
