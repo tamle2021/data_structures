@@ -37,7 +37,7 @@ public class Activity {
 
     @Override
     public String toString() {
-      return name + " => startTime: " + startTime + ", finishTime: " + finishTime;
+        return name + " => startTime: " + startTime + ", finishTime: " + finishTime;
     }
 
   }

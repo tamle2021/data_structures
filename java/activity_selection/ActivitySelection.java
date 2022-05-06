@@ -41,7 +41,6 @@ public class ActivitySelection {
         previousActivity = activity;
       }
     }
-
   }
 
   public static void main(String[] args) {
@@ -55,12 +54,5 @@ public class ActivitySelection {
     activityList.add(new Activity("A6",8,9));
 
     ActivitySelection.activitySelection(activityList);
-
-
-
-
-
-
   }
-
 }
