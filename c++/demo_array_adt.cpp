@@ -1,7 +1,12 @@
 /*
-array abstract data type representation
+
+
+
+**** demo array abstract data type ****
+
 */
 #include <iostream>
+
 using namespace std;
 
 class Array {
@@ -9,7 +14,9 @@ private:
     int *A;
     int size;
     int length;
+
 public:
+    // constructor
     Array(int size) {
         this->size = size;
         A = new int [size];
@@ -20,28 +27,29 @@ public:
         cin >> length;
         cout << "enter array elements: " << endl;
         for (int i = 0; i < length; i++) {
-            cout << "array element: " << i << " = " << flush;
+            cout << "element " << i << " : " << flush;
             cin >> A[i];
         }
     }
 
-    void display() {
+    void displayIt() {
+        cout << "array elements: ";
         for (int i = 0; i < length; i++){
             cout << A[i] << " ";
         }
     }
 
     ~Array() {
-        delete[] A;
-        cout << "\narray destroyed..." << endl;
+        delete []A;
+        cout << "\narray destructor...." << endl;
     }
 };
 
 int main() {
-    cout << "**** demo array adt ****\n";
-    Array arr(22);
+    cout << "**** demo array abstract data type ****\n";
+    Array arr(25);
     arr.create();
-    arr.display();
+    arr.displayIt();
 
     return 0;
 }
