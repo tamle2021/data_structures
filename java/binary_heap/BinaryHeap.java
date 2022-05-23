@@ -55,7 +55,7 @@ public class BinaryHeap {
 		heapifyBottomToTop(sizeOfTree);
 		System.out.println("inserted " + value + " successfully in heap....");
 
-		levelOrder();
+		// levelOrder();
 	}
 
 	// peek the heap
@@ -82,7 +82,7 @@ public class BinaryHeap {
 			heapifyTopToBottom(1);
 
 			System.out.println("successfully extracted value from heap....");
-			levelOrder();
+			// levelOrder();
 
 			return extractedValue;
 		}
@@ -118,7 +118,6 @@ public class BinaryHeap {
 
 		heapifyBottomToTop(parent);
 	}
-
 
 	public void heapifyTopToBottom(int index) {
 		int left  = index * 2;
@@ -227,7 +226,6 @@ public class BinaryHeap {
 		heapifyTopToBottom2(swapChild,heapType);
 	}
 
-
 	public void heapifyBottomToTop2(int index,String heapType) {
 		int parent = index / 2;
 		// root of tree and no heapifying is required
@@ -270,6 +268,4 @@ public class BinaryHeap {
 
 		System.out.println("insert " + value + " successfully in heap....");
 	}
-
-
 }
