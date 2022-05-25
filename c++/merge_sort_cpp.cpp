@@ -1,6 +1,7 @@
 /*
 
 
+
 **** merge sort c++ implementation ****
 */
 #include <iostream>
@@ -39,7 +40,7 @@ void mergeIt(int x[],int y[],int z[],int m,int n) {
     }
 }
 
-void mergeSingle(int A[],int low,int mid,int high) {
+void merge1(int A[],int low,int mid,int high) {
     int i = low;
     int j = mid + 1;
     int k = low;
@@ -64,7 +65,7 @@ void mergeSingle(int A[],int low,int mid,int high) {
 }
 
 int main() {
-    cout << "**** merge sort c++ implementation *****\n";
+    cout << "**** merge sort c++ implementation ****\n";
     // arrays have to be sorted first
     int A[] = {-6,3,5,14,21,44,92,212};
     int m = sizeof(A) / sizeof(A[0]);
@@ -76,9 +77,8 @@ int main() {
 
     int r = m + n;
     int C[r];
-    mergeIt(A, B, C, m, n);
+    mergeIt(A,B,C,m,n);
 
-    // print function does not work for variable length array C
     cout << "sorted array" << ": [" << flush;
     for (int i = 0; i < r; i++) {
         cout << C[i] << flush;
@@ -89,11 +89,11 @@ int main() {
     cout << "]" << endl;
     cout << endl;
 
-    int D[] = {2,43,55,81,0,4,17,61};
+    int d[] = {2,43,55,81,0,4,17,61};
     cout << "**** merge single array ****\n";
-    printIt(D, sizeof(D) / sizeof(D[0]),"d array");
-    mergeSingle(D,0,3,7);
-    printIt(D,sizeof(D) / sizeof(D[0]),"sorted d array");
+    printIt(d, sizeof(d) / sizeof(d[0]),"before sort");
+    merge1(d,0,3,7);
+    printIt(d,sizeof(d) / sizeof(d[0]),"after sort");
 
     return 0;
 }
