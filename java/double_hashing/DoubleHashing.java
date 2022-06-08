@@ -33,7 +33,7 @@ public class DoubleHashing {
 		return sum % M;
 	}
 
-    // creates hash table and re-hash
+    // create hash table and re-hash
 	public void rehashKey(String string1) {
 		numCellsUsedHashTable = 0;
 		ArrayList<String> data = new ArrayList<String>();
