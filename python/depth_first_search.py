@@ -1,13 +1,23 @@
 '''
-Depth first search using stack.
+Depth–first search is an algorithm for traversing or searching tree or graph data structures. One starts at
+the root and can select some arbitrary node as root for a graph. Then, next step explores as far as possible along
+each branch before backtracking.
 
-time complexity: O(V + E)
-space complexity: O(V)
+time complexity:
+O(V + E)
+
+space complexity:
+O(V)
+
+data structure:
+stack
 
 
-**** depth first search ****
+
+
+**** depth-first search ****
+
 '''
-
 from collections import defaultdict
 
 class Graph:
@@ -30,6 +40,7 @@ class Graph:
                 print(current,end=" ")
                 visited.add(current)
 
+            # explore neighbors and add to stack
             for vertex in self.graph[current]:
                 if (vertex not in visited):
                     stack.append(vertex)
@@ -37,7 +48,7 @@ class Graph:
     def printGraph(self):
         print("graph: {0}".format(self.graph))
 
-print("**** depth first search ****")
+print("**** depth-first search ****")
 g = Graph()
 g.insertEdge(2,1)
 g.insertEdge(2,5)
@@ -49,4 +60,4 @@ g.insertEdge(8,4)
 # start at node 2
 g.depthFirstSearch(2)
 print("\n")
-g.printGraph()
+# g.printGraph()
